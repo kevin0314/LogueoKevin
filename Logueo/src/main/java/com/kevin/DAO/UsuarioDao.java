@@ -22,11 +22,14 @@ public class UsuarioDao {
 		em = emf.createEntityManager();
 		
 		try {
-			
+		
 			em.getTransaction().begin();
 			usuario = em.createQuery("from TbUsuariop as u where u.usuario = '"+usu.getUsuario()+"' and u.contrasenia='"+usu.getContrasenia()+"' ").getResultList();
 			em.getTransaction().commit();
-			
+			for(TbUsuariop datosids:usuario) {
+				
+			usu.setIdUsuarios(datosids.getIdUsuarios());	
+			}
 			
 		} catch (Exception e) {
 			System.out.println(e+"Error");

@@ -1,12 +1,17 @@
 package com.kevin.controler;
 
 import java.io.IOException;
+import java.util.Date;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.kevin.DAO.HistorialDao;
 import com.kevin.DAO.UsuarioDao;
+import com.kevin.model.TbHistorial;
 import com.kevin.model.TbUsuariop;
 
 /**
@@ -48,8 +53,20 @@ public class ServeletUser extends HttpServlet {
 		int verificar = usudao.ingresoUsuario(usuario).size();
 		
 		if(verificar == 1) {
+			TbHistorial histo = new TbHistorial();
+			HistorialDao histodao = new HistorialDao();
 			
-			System.out.println("Entraste");
+			Date fecha = new Date();
+			
+			histo.setFecha(fecha);
+			usuario.setIdUsuarios(usuario.getIdUsuarios());
+			histo.setTbUsuariop(usuario);
+			histodao.agregarDatosHistorial(histo);
+			
+			HttpSession seccion = request.getSession(true);
+			seccion.setAttribute("usuario", usu);
+			response.sendRedirect("Principal.jsp");
+		
 			
 		}else{
 			
