@@ -43,6 +43,18 @@ public class ServeletUser extends HttpServlet {
 	
 		String usu = request.getParameter("txtUsuario");
 		String contra = request.getParameter("txtClave");	
+		String cerrar = request.getParameter("btnCerrar");	
+		
+		if(cerrar!=null) {
+			if(cerrar.equals("CERRAR")) {
+				HttpSession cerrarseciones = (HttpSession) request.getSession();
+				cerrarseciones.invalidate();
+				response.sendRedirect("index.jsp");
+				
+			}
+				
+			}else {
+		
 		
 		TbUsuariop usuario = new TbUsuariop();
 		
@@ -66,7 +78,6 @@ public class ServeletUser extends HttpServlet {
 			HttpSession seccion = request.getSession(true);
 			seccion.setAttribute("usuario", usu);
 			response.sendRedirect("Principal.jsp");
-		
 			
 		}else{
 			
@@ -78,4 +89,6 @@ public class ServeletUser extends HttpServlet {
 		response.sendRedirect("index.jsp");
 	}
 
+}
+	
 }

@@ -49,4 +49,10 @@ public class TbHistorial implements Serializable {
 		this.idUsuario = idUsuario;
 	}
 
+	public void setTbUsuariop(TbUsuariop usuario) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 }
