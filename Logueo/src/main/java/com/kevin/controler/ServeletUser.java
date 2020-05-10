@@ -54,7 +54,7 @@ public class ServeletUser extends HttpServlet {
 			}
 				
 			}else {
-		
+		 
 		
 		TbUsuariop usuario = new TbUsuariop();
 		
@@ -65,6 +65,7 @@ public class ServeletUser extends HttpServlet {
 		int verificar = usudao.ingresoUsuario(usuario).size();
 		
 		if(verificar == 1) {
+			
 			TbHistorial histo = new TbHistorial();
 			HistorialDao histodao = new HistorialDao();
 			
@@ -77,7 +78,7 @@ public class ServeletUser extends HttpServlet {
 			
 			HttpSession seccion = request.getSession(true);
 			seccion.setAttribute("usuario", usu);
-			response.sendRedirect("Principal.jsp");
+			response.sendRedirect("Principal.jsp"); 
 			
 		}else{
 			
@@ -86,9 +87,11 @@ public class ServeletUser extends HttpServlet {
 		
 		
 		
-		response.sendRedirect("index.jsp");
+		//response.sendRedirect("index.jsp");
 	}
-
+	
 }
+
+
 	
 }

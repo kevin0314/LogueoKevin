@@ -22,6 +22,7 @@ if(usuarioseccion==null){
 <input type="submit" value ="CERRAR" name="btnCerrar">
 
 </form>
+<a href="historialUsuarios.jsp">VER HISTORIAL DE USUARIOS </a>
 
 <h1>Entraste hola que haces</h1>
 
