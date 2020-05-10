@@ -15,22 +15,18 @@ import java.util.Date;
 public class TbHistorial implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Temporal(TemporalType.DATE)
-	private Date fecha;
-    @Id
+	@Id
 	private int idHistorial;
 
-	private int idUsuario;
+	@Temporal(TemporalType.DATE)
+	private Date fecha;
+
+	//bi-directional many-to-one association to TbUsuariop
+	@ManyToOne
+	@JoinColumn(name="IdUsuario")
+	private TbUsuariop tbUsuariop;
 
 	public TbHistorial() {
-	}
-
-	public Date getFecha() {
-		return this.fecha;
-	}
-
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
 	}
 
 	public int getIdHistorial() {
@@ -41,18 +37,20 @@ public class TbHistorial implements Serializable {
 		this.idHistorial = idHistorial;
 	}
 
-	public int getIdUsuario() {
-		return this.idUsuario;
+	public Date getFecha() {
+		return this.fecha;
 	}
 
-	public void setIdUsuario(int idUsuario) {
-		this.idUsuario = idUsuario;
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
 	}
 
-	public void setTbUsuariop(TbUsuariop usuario) {
-		// TODO Auto-generated method stub
-		
+	public TbUsuariop getTbUsuariop() {
+		return this.tbUsuariop;
 	}
 
+	public void setTbUsuariop(TbUsuariop tbUsuariop) {
+		this.tbUsuariop = tbUsuariop;
+	}
 
 }
