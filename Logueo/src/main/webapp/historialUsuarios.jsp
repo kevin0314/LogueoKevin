@@ -24,19 +24,15 @@
         	  if(item[2]==null || item[2]==undefined){
         		  item[2]="NO DISPONIBLE";
         	  }
+          
             tabladatos.innerHTML += `
             
-            	<td>$(item[0])</td>
-                <td>$(item[1])</td>
-                <td>$(item[2])</td>
-                <td>$(item[3])</td>
-                <td>$(item[4])</td>
-             
-           // <td>$(datos[i][0])</td>
-          //  <td>$(datos[i][1])</td>
-          //  <td>$(datos[i][2])</td>
-           // <td>$(datos[i][3])</td>
-           // <td>$(datos[i][4])</td>
+            	<td>${item[0]}</td>
+                <td>${item[1]}</td>
+                <td>${item[2]}</td>
+                <td>${item[3]}</td>
+                <td>${item[4]}</td>
+            
 
             `
 
