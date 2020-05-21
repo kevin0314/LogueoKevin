@@ -16,12 +16,27 @@
 
           }, function(response){
           let datos = JSON.parse(response);
-          //console.log(datos);
+          console.log(datos[0][3]);
           var tabladatos = document.getElementById('tablaDatos');
-
-           for(let item of datos){
-            tabladatos.innerHTML += ` 
+           
+          //for(var i=0; i<datos.length; i++)
+          for(let item of datos){
+        	  if(item[2]==null || item[2]==undefined){
+        		  item[2]="NO DISPONIBLE";
+        	  }
+            tabladatos.innerHTML += `
+            
+            	<td>$(item[0])</td>
+                <td>$(item[1])</td>
+                <td>$(item[2])</td>
+                <td>$(item[3])</td>
+                <td>$(item[4])</td>
              
+           // <td>$(datos[i][0])</td>
+          //  <td>$(datos[i][1])</td>
+          //  <td>$(datos[i][2])</td>
+           // <td>$(datos[i][3])</td>
+           // <td>$(datos[i][4])</td>
 
             `
 
@@ -36,11 +51,15 @@
 <body>
    <table class ="table table-dark" id="tablaDatos">
    <thead>
-    <th>ID</th>
-     <th>NOMBRE</th>
-      <th>PRECIO</th>
-       <th>CANTIDAD</th>
+    <th>ID HISTORIAL</th>
+     <th>ID USUARIOS</th>
+      <th>FECHA</th>
+       <th>NOMBRE USUARIO</th>
+       <th>APELLIDO USUARIO</th>
    </thead>
+   <tbody>
+   
+   </tbody>
    
    </table>
 
